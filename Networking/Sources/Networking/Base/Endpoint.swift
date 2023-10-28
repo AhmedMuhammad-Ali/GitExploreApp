@@ -5,21 +5,38 @@
 //  Created by Ahmed Ali on 28/10/2023.
 //
 
-protocol Endpoint {
-    var scheme: String { get }
-    var host: String { get }
+import Foundation
+/// A protocol representing a network request.
+public protocol Endpoint: URLRequestConvertible {
+    /// The base URL of the request.
+    var baseUrl: URL { get }
+
+    /// The path component of the request URL.
     var path: String { get }
+
+    /// The HTTP method of the request.
     var method: RequestMethod { get }
-    var header: [String: String]? { get }
-    var body: [String: String]? { get }
+
+    /// The query parameters of the request.
+    var queryParameters: [String: String] { get }
+
+    /// The body parameters of the request.
+    var bodyParameters: [String: Any] { get }
+
+    /// The headers of the request.
+    var headers: [String: String] { get }
 }
 
 extension Endpoint {
-    var scheme: String {
-        return "https"
+    /// Default implementation of headers.
+    public var baseUrl: URL {
+        NetworkConstants.baseUrl
     }
+    public var headers: [String: String] { [:] }
 
-    var host: String {
-        return "api.themoviedb.org"
-    }
+    /// Default implementation of query parameters.
+    public var queryParameters: [String: String] { [:] }
+
+    /// Default implementation of body parameters.
+    public var bodyParameters: [String: Any] { [:] }
 }

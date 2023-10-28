@@ -4,8 +4,8 @@
 //
 //  Created by Ahmed Ali on 28/10/2023.
 //
-
-enum RequestError: Error {
+/// An enumeration representing common errors that can occur during network requests.
+public enum RequestError: Error {
     case decode
     case invalidURL
     case noResponse
