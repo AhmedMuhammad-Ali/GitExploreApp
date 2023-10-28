@@ -16,6 +16,7 @@
 		60D9894C2AED372500B71561 /* GitExploreAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D9894B2AED372500B71561 /* GitExploreAppTests.swift */; };
 		60D989562AED372500B71561 /* GitExploreAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D989552AED372500B71561 /* GitExploreAppUITests.swift */; };
 		60D989582AED372500B71561 /* GitExploreAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D989572AED372500B71561 /* GitExploreAppUITestsLaunchTests.swift */; };
+		60D989672AED51D200B71561 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 60D989662AED51D200B71561 /* Networking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60D989672AED51D200B71561 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +87,7 @@
 				60D9894A2AED372500B71561 /* GitExploreAppTests */,
 				60D989542AED372500B71561 /* GitExploreAppUITests */,
 				60D989322AED372300B71561 /* Products */,
+				60D989652AED51D200B71561 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +132,13 @@
 			path = GitExploreAppUITests;
 			sourceTree = "<group>";
 		};
+		60D989652AED51D200B71561 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +155,9 @@
 			dependencies = (
 			);
 			name = GitExploreApp;
+			packageProductDependencies = (
+				60D989662AED51D200B71561 /* Networking */,
+			);
 			productName = GitExploreApp;
 			productReference = 60D989312AED372300B71561 /* GitExploreApp.app */;
 			productType = "com.apple.product-type.application";
@@ -600,6 +613,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		60D989662AED51D200B71561 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 60D989292AED372300B71561 /* Project object */;
 }
