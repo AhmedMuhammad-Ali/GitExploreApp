@@ -16,6 +16,7 @@
 		60D9894C2AED372500B71561 /* GitExploreAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D9894B2AED372500B71561 /* GitExploreAppTests.swift */; };
 		60D989562AED372500B71561 /* GitExploreAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D989552AED372500B71561 /* GitExploreAppUITests.swift */; };
 		60D989582AED372500B71561 /* GitExploreAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D989572AED372500B71561 /* GitExploreAppUITestsLaunchTests.swift */; };
+		60D989672AED51D200B71561 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 60D989662AED51D200B71561 /* Networking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		60D989512AED372500B71561 /* GitExploreAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitExploreAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60D989552AED372500B71561 /* GitExploreAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitExploreAppUITests.swift; sourceTree = "<group>"; };
 		60D989572AED372500B71561 /* GitExploreAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitExploreAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		60D989642AED3B1100B71561 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60D989672AED51D200B71561 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,10 +82,12 @@
 		60D989282AED372300B71561 = {
 			isa = PBXGroup;
 			children = (
+				60D989642AED3B1100B71561 /* Networking */,
 				60D989332AED372300B71561 /* GitExploreApp */,
 				60D9894A2AED372500B71561 /* GitExploreAppTests */,
 				60D989542AED372500B71561 /* GitExploreAppUITests */,
 				60D989322AED372300B71561 /* Products */,
+				60D989652AED51D200B71561 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +132,13 @@
 			path = GitExploreAppUITests;
 			sourceTree = "<group>";
 		};
+		60D989652AED51D200B71561 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +155,9 @@
 			dependencies = (
 			);
 			name = GitExploreApp;
+			packageProductDependencies = (
+				60D989662AED51D200B71561 /* Networking */,
+			);
 			productName = GitExploreApp;
 			productReference = 60D989312AED372300B71561 /* GitExploreApp.app */;
 			productType = "com.apple.product-type.application";
@@ -444,6 +459,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,6 +487,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -596,6 +613,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		60D989662AED51D200B71561 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 60D989292AED372300B71561 /* Project object */;
 }
