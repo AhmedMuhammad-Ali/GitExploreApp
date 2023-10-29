@@ -18,5 +18,3 @@ public protocol NetworkDispatcher {
     /// - Returns: An asynchronous Result object containing either a success value of type `Request.ResponseType` or a failure value of type `RequestError`..
     func dispatch<Request: RequestType>(_ request: Request) async -> Result<Request.ResponseType, RequestError>
 }
-
-
