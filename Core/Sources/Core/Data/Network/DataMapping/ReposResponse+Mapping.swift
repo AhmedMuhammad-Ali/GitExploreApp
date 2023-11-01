@@ -52,4 +52,3 @@ extension ReposResponseDTO {
                      forksURL: forksURL)
     }
 }
-

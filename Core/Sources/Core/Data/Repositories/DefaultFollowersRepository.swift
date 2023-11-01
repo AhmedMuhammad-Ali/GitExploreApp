@@ -8,7 +8,7 @@ import Domain
 import Networking
 
 /// A concrete implementation of the `FollowersRepository` protocol for fetching followers' data.
-public final class DefaultFollowersRepository: FollowersRepository {
+public final class DefaultFollowersRepository {
     private let networking: NetworkDispatcher
 
     /// Initializes an instance of `DefaultFollowersRepository`.
@@ -18,8 +18,8 @@ public final class DefaultFollowersRepository: FollowersRepository {
         self.networking = networking
     }
 }
-
-extension DefaultFollowersRepository {
+// MARK: - DefaultFollowersRepository + FollowersRepository
+extension DefaultFollowersRepository: FollowersRepository {
     /// Fetches the count of followers for a specified user.
     ///
     /// - Parameter userName: The username for which to fetch the followers count.

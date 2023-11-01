@@ -19,8 +19,8 @@ public final class DefaultUsersRepository {
         self.networking = networking
     }
 }
-
-extension DefaultUsersRepository: UsersRepository {    
+// MARK: - DefaultUsersRepository + UsersRepository
+extension DefaultUsersRepository: UsersRepository {
     /// Fetches information for all users.
     ///
     /// - Returns: An array of `User` instances representing user information.
@@ -36,4 +36,3 @@ extension DefaultUsersRepository: UsersRepository {
         }
     }
 }
-

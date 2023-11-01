@@ -57,4 +57,3 @@ extension UsersResponseDTO {
         return .init(id: id, name: login, avatarUrl: avatarURL)
     }
 }
-

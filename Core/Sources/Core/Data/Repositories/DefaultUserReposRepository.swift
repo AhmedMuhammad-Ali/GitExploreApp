@@ -9,7 +9,7 @@ import Domain
 import Networking
 
 /// A concrete implementation of the `UserReposRepository` protocol for fetching a user's repositories.
-public final class DefaultUserReposRepository: UserReposRepository {
+public final class DefaultUserReposRepository {
     private let networking: NetworkDispatcher
 
     /// Initializes an instance of `DefaultUserReposRepository`.
@@ -19,8 +19,8 @@ public final class DefaultUserReposRepository: UserReposRepository {
         self.networking = networking
     }
 }
-
-extension DefaultUserReposRepository {
+// MARK: - DefaultUserReposRepository + UserReposRepository
+extension DefaultUserReposRepository: UserReposRepository {
     /// Fetches all repositories owned by a specified user.
     ///
     /// - Parameter userName: The username for which to fetch the repositories.
