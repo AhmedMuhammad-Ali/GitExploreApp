@@ -16,7 +16,8 @@
 		60D9894C2AED372500B71561 /* GitExploreAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D9894B2AED372500B71561 /* GitExploreAppTests.swift */; };
 		60D989562AED372500B71561 /* GitExploreAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D989552AED372500B71561 /* GitExploreAppUITests.swift */; };
 		60D989582AED372500B71561 /* GitExploreAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D989572AED372500B71561 /* GitExploreAppUITestsLaunchTests.swift */; };
-		60D989672AED51D200B71561 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 60D989662AED51D200B71561 /* Networking */; };
+		60D989702AEDA5E600B71561 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 60D9896F2AEDA5E600B71561 /* Domain */; };
+		60D989792AEDB97200B71561 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 60D989782AEDB97200B71561 /* Core */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		60D989552AED372500B71561 /* GitExploreAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitExploreAppUITests.swift; sourceTree = "<group>"; };
 		60D989572AED372500B71561 /* GitExploreAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitExploreAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		60D989642AED3B1100B71561 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
+		60D9896A2AED749B00B71561 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
+		60D989772AEDB42F00B71561 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60D989672AED51D200B71561 /* Networking in Frameworks */,
+				60D989702AEDA5E600B71561 /* Domain in Frameworks */,
+				60D989792AEDB97200B71561 /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +86,8 @@
 		60D989282AED372300B71561 = {
 			isa = PBXGroup;
 			children = (
+				60D989772AEDB42F00B71561 /* Core */,
+				60D9896A2AED749B00B71561 /* Domain */,
 				60D989642AED3B1100B71561 /* Networking */,
 				60D989332AED372300B71561 /* GitExploreApp */,
 				60D9894A2AED372500B71561 /* GitExploreAppTests */,
@@ -157,7 +163,8 @@
 			);
 			name = GitExploreApp;
 			packageProductDependencies = (
-				60D989662AED51D200B71561 /* Networking */,
+				60D9896F2AEDA5E600B71561 /* Domain */,
+				60D989782AEDB97200B71561 /* Core */,
 			);
 			productName = GitExploreApp;
 			productReference = 60D989312AED372300B71561 /* GitExploreApp.app */;
@@ -287,7 +294,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    echo \"SwiftLint installed, running...\"\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, please install using 'brew install swiftlint' or download from https://github.com/realm/SwiftLint\"\n    exit 1\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n    echo \"SwiftLint installed, running...\"\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, please install using 'brew install swiftlint' or download from https://github.com/realm/SwiftLint\"\n    exit 1\nfi\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -638,9 +645,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		60D989662AED51D200B71561 /* Networking */ = {
+		60D9896F2AEDA5E600B71561 /* Domain */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Networking;
+			productName = Domain;
+		};
+		60D989782AEDB97200B71561 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
