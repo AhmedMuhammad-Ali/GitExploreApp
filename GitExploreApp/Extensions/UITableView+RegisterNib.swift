@@ -16,7 +16,14 @@ extension UITableView {
         let nibName = String(describing: Cell.self)
         register(UINib(nibName: nibName, bundle: nil), forCellReuseIdentifier: nibName)
     }
-
+    /// Generic function for register table view cell
+    ///
+    /// - Usage:
+    ///   - tableview.registerWithClassName(cell: 'your cell'.self)
+    func register<Cell: UITableViewCell>(cell: Cell.Type) {
+        let identifier = String(describing: Cell.self)
+        register(Cell.self, forCellReuseIdentifier: identifier)
+    }
     /// Generic function for dequeue table view cell
     ///
     /// - Usage:
