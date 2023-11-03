@@ -5,10 +5,12 @@
 //  Created by Ahmed Ali on 31/10/2023.
 //
 
-import Foundation
-
 extension Array {
-    subscript(safe index: Index) -> Element? {
+    /// Safely retrieves an element at the specified index if it is within the array's bounds.
+    ///
+    /// - Parameter safe: The index to access safely.
+    /// - Returns: The element at the specified index if it exists, or `nil` if the index is out of bounds.
+    public subscript(safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
 }

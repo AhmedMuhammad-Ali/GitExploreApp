@@ -5,9 +5,10 @@
 //  Created by Ahmed Ali on 31/10/2023.
 //
 
-import Foundation
-
 extension String {
+    /// A static property that represents an empty string.
+    ///
+    /// Use `String.empty` to access an empty string without creating a new instance.
     static var empty: String {
         return ""
     }
