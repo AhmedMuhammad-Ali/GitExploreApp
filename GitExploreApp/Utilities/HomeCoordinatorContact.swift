@@ -16,7 +16,7 @@ protocol HomeCoordinatorContact: AnyObject {
     func showUserRepsList(with repos: [Repo])
 
     /// Shows a list of forked users.
-    func showForkedUserList()
+    func showForkedUserList(using detailsContext: ForkedUsersViewModel.ForkedUserDetailsContext)
 }
 /// A concrete implementation of the `HomeCoordinator` protocol.
 final class DefaultHomeCoordinator: Coordinator {
@@ -54,7 +54,11 @@ extension DefaultHomeCoordinator: HomeCoordinatorContact {
     }
 
     /// Shows a list of forked users.
-    func showForkedUserList() {
+    func showForkedUserList(using detailsContext: ForkedUsersViewModel.ForkedUserDetailsContext) {
         // Implementation for showing forked user list goes here.
+        let viewModel = ForkedUsersViewModel(
+            detailsContext: detailsContext)
+        let viewController = ForkedUsersViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
     }
 }
