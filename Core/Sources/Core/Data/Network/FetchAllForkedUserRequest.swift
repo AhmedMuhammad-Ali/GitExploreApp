@@ -10,7 +10,7 @@ import Networking
 /// A request for fetching all users who have forked a specific repository.
 struct FetchAllForkedUserRequest: RequestType {
 
-    typealias ResponseType = [UsersResponseDTO]
+    typealias ResponseType = [ForkedUsersResponseDTO]
 
     /// The username of the repository's owner.
     private let userName: String
@@ -29,7 +29,7 @@ struct FetchAllForkedUserRequest: RequestType {
 
     /// The path for the request to fetch forked users.
     var path: String {
-        "repos/\(userName)/\(repoName)/repos"
+        "/repos/\(userName)/\(repoName)/forks"
     }
 
     /// The HTTP method for the request.

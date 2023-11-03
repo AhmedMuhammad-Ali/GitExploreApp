@@ -36,7 +36,7 @@ extension DefaultForkedUsersRepository: ForkedUsersRepository {
                                                                          repoName: repository))
         switch result {
         case .success(let responseDTO):
-            return responseDTO.compactMap { $0.toDomain() }
+            return responseDTO.compactMap { $0.owner?.toDomain() }
         case .failure(let error):
             throw error
         }
