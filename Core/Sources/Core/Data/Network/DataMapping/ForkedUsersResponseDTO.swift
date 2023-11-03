@@ -6,7 +6,7 @@
 //
 
 import Foundation
-/// A data transfer object (DTO) representing user response data.
+/// A data transfer object (DTO) representing forked user response data.
 struct ForkedUsersResponseDTO: Codable {
     let owner: UsersResponseDTO?
 }
