@@ -15,7 +15,7 @@ public final class DefaultFetchUserFollowersCountUseCase: FetchUserFollowersCoun
     /// Initializes an instance of `DefaultFetchUserFollowersCountUseCase`.
     ///
     /// - Parameter followersRepository: A repository responsible for fetching followers count.
-    public init(followersRepository: FollowersRepository) {
+    public init(_ followersRepository: FollowersRepository) {
         self.followersRepository = followersRepository
     }
 

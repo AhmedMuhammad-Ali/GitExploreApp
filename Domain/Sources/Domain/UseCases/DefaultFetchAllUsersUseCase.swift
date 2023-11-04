@@ -13,7 +13,7 @@ public final class DefaultFetchAllUsersUseCase: FetchAllUsersUseCase {
     /// Initializes an instance of `DefaultFetchAllUsersUseCase`.
     ///
     /// - Parameter usersRepository: A repository responsible for fetching user information.
-    public init(usersRepository: UsersRepository) {
+    public init(_ usersRepository: UsersRepository) {
         self.usersRepository = usersRepository
     }
 

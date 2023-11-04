@@ -13,7 +13,7 @@ public final class DefaultFetchAllForkedUserUseCase: FetchAllForkedUserUseCase {
     /// Initializes an instance of `DefaultFetchAllForkedUserUseCase`.
     ///
     /// - Parameter forkedUsersRepository: The repository for fetching forked user data.
-    public init(forkedUsersRepository: ForkedUsersRepository) {
+    public init(_ forkedUsersRepository: ForkedUsersRepository) {
         self.forkedUsersRepository = forkedUsersRepository
     }
 
