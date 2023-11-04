@@ -16,7 +16,7 @@ protocol HomeCoordinatorContact: AnyObject {
     func showUserRepsList(with repos: [Repo])
 
     /// Shows a list of forked users.
-    func showForkedUserList(using detailsContext: ForkedUsersViewModel.ForkedUserDetailsContext)
+    func showForkedUserList(using contextDetails: ForkedUsersViewModel.ForkedUserContextDetails)
 }
 /// A concrete implementation of the `HomeCoordinator` protocol.
 final class DefaultHomeCoordinator: Coordinator {
@@ -38,26 +38,22 @@ final class DefaultHomeCoordinator: Coordinator {
 extension DefaultHomeCoordinator: HomeCoordinatorContact {
     /// Shows a list of users.
     func showUsersList() {
-        let usersViewModel = UsersListViewModel(coordinator: self)
+        let usersViewModel = DIContainer.shared.resolve(type: UsersListViewModel.self)
         let rootView = UsersListView(viewModel: usersViewModel)
-        let userListViewController = UIHostingController(rootView: rootView)
-        navigationController.setViewControllers([userListViewController], animated: false)
+        let usersViewController = HostingController(rootView: rootView.eraseToAnyView(), viewModel: usersViewModel)
+        navigationController.setViewControllers([usersViewController], animated: false)
     }
-
     /// Shows a list of user repositories.
-    func showUserRepsList(with repos: [Repo]) {
+    func showUserRepsList(with repos: Repos) {
         // Implementation for showing user repositories goes here.
         let viewModel = UserRepositoriesViewModel(repos: repos, coordinator: self)
         let viewController = UserRepositoriesViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
-
     }
-
     /// Shows a list of forked users.
-    func showForkedUserList(using detailsContext: ForkedUsersViewModel.ForkedUserDetailsContext) {
-        // Implementation for showing forked user list goes here.
-        let viewModel = ForkedUsersViewModel(
-            detailsContext: detailsContext)
+    func showForkedUserList(using contextDetails: ForkedUsersViewModel.ForkedUserContextDetails) {
+        let  forkedUsersUseCase = DIContainer.shared.resolve(type: FetchAllForkedUserUseCase.self)
+        let viewModel = ForkedUsersViewModel(contextDetails: contextDetails, forkedUsersUseCase: forkedUsersUseCase)
         let viewController = ForkedUsersViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
