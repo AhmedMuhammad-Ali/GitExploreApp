@@ -40,7 +40,7 @@ extension DefaultHomeCoordinator: HomeCoordinatorContact {
     func showUsersList() {
         let usersViewModel = DIContainer.shared.resolve(type: UsersListViewModel.self)
         let rootView = UsersListView(viewModel: usersViewModel)
-        let usersViewController = HostingController(rootView: rootView.eraseToAnyView(), viewModel: usersViewModel)
+        let usersViewController = UserListHostingController(rootView: rootView.eraseToAnyView(), viewModel: usersViewModel)
         navigationController.setViewControllers([usersViewController], animated: false)
     }
     /// Shows a list of user repositories.
