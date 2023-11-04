@@ -33,7 +33,7 @@ extension UserRepositoryCell {
     }
     // MARK: - Private Methods
     private func configureAppearance() {
-        cardView.applyDefaultCardShadow(cornerRadius: Dimensions.d08)
+        cardView.applyDefaultCardShadow(cornerRadius: Dimensions.d12)
     }
 }
 /// The `ViewModel` struct represents the view model used to configure the `UserRepositoryCell`.

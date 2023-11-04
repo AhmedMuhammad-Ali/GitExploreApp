@@ -29,6 +29,7 @@ struct GitHubUserView: View {
             Text(user.userName)
                 .font(.title)
                 .padding(.leading, Dimensions.d12)
+            Spacer()
         } //: HStack
     }
 }
