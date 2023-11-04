@@ -8,20 +8,15 @@
 import Foundation
 /// The default implementation of the NetworkDispatcher protocol.
 public final class DefaultNetworkDispatcher: NetworkDispatcher {
-    private let session: URLSessionProtocol
 
     /// Initializes the DefaultNetworkDispatcher with an optional URLSession instance.
-    /// - Parameter session: The URLSession instance to use for network requests. If not provided,
-    /// a shared URLSession will be used.
-    public init(session: URLSessionProtocol = URLSession.shared) {
-        self.session = session
-    }
+    public init() {}
     public func dispatch<Request: RequestType>(_ request: Request) async -> Result<Request.ResponseType, RequestError> {
         guard let urlRequest = request.asURLRequest() else {
             return .failure(.invalidURL)
         }
         do {
-            let (data, response) = try await session.data(for: urlRequest)
+            let (data, response) = try await SessionManager.shared.session.data(for: urlRequest)
             guard let response = response as? HTTPURLResponse else {
                 return .failure(.noResponse)
             }
