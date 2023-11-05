@@ -14,7 +14,8 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../Domain"),
-        .package(path: "../Networking")
+        .package(path: "../Networking"),
+        .package(path: "../Storage")
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
@@ -23,7 +24,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Core",
-            dependencies: ["Domain", "Networking"]),
+            dependencies: ["Domain", "Networking", "Storage"]),
         .testTarget(
             name: "CoreTests",
             dependencies: ["Core"])
