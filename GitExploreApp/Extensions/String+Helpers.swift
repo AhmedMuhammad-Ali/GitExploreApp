@@ -12,4 +12,7 @@ extension String {
     static var empty: String {
         return ""
     }
+    static var notAvailable: String {
+        return "N/A"
+    }
 }
