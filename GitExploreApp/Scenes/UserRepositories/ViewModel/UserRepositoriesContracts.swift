@@ -19,6 +19,8 @@ protocol UserReposViewModelInput {
     /// Notifies the view model when a repository is tapped at a specific index.
     /// - Parameter index: The index of the tapped repository.
     func didTappedOnRepository(at index: Int)
+    /// The title associated with the repository.
+    var title: String { get }
 }
 
 /// A protocol defining the output properties and methods for a user repositories view model.

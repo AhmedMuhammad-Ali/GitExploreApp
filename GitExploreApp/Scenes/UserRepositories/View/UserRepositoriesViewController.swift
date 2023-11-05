@@ -29,12 +29,17 @@ class UserRepositoriesViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationTitle()
         configureTableView()
         configureStateBinding(state: viewModel.statePublisher)
     }
 }
 // MARK: - Configure Appearance
 private extension UserRepositoriesViewController {
+    /// Sets the navigation title of the view controller.
+    func configureNavigationTitle() {
+        self.title = viewModel.title
+    }
     ///   /// Configures the appearance and behavior of the table view.
     func configureTableView() {
         tableView.delegate = self

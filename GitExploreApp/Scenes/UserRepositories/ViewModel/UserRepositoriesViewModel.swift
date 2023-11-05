@@ -47,6 +47,10 @@ extension UserRepositoriesViewModel: UserReposViewModelInput {
         guard let repo = repos[safe: index], let owner = repo.owner else { return }
         coordinator?.showForkedUserList(using: .init(userName: owner.name, repoName: repo.name))
     }
+    /// The title associated with the repository.
+    var title: String {
+        "\(repos.first?.owner?.name ?? "")'s Repositories"
+    }
 }
 extension UserRepositoriesViewModel: UserReposViewModelOutput {
     /// The count of repositories managed by the view model.

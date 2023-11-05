@@ -72,7 +72,7 @@ extension ForkedUsersViewModel: ForkedUsersViewModelOutput {
 
     /// The title associated with the repository.
     var title: String {
-        contextDetails.repoName
+        "Forks of \(contextDetails.repoName)"
     }
 
     /// Accesses the `ForkedUserViewModel` at a specific index in the list of forked users.
