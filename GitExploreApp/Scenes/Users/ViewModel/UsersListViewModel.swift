@@ -145,10 +145,18 @@ private extension UsersListViewModel {
     /// - Parameter user: The User object for which to fetch additional information.
     /// - Returns: A UserUIModel with completed information.
     func createUserCellView(_ user: User) async throws -> UserUIModel {
-        let repos =  try await self.reposUseCase.execute(by: user.name)
-        let followersCount =  try await self.followersCountUseCase(for: user.name)
+        let repos =  try? await self.reposUseCase.execute(by: user.name)
+        let followersCount =  try? await self.followersCountUseCase(for: user.name)
 
-        return UserUIModel(from: user, repos: repos, followersCount: followersCount)
+        let formattedFollowersCount: String = ( followersCount == nil) ? .notAvailable : "\(followersCount ?? .zero)"
+        let formattedReposCount: String = (repos?.count == nil) ? .notAvailable : "\(repos?.count ?? .zero)"
+
+        return UserUIModel(from: user,
+                           repos: repos ?? [],
+                           reposCount: formattedReposCount,
+                           followersCount: formattedFollowersCount
+        )
+
     }
     /// Handles the completion of the user list loading by updating the view state and user data on the `Main Thread`.
     ///
