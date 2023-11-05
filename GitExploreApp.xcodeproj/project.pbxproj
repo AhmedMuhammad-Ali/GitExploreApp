@@ -81,6 +81,7 @@
 		604259A82AF701CF00E332C8 /* UserRepositoriesContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoriesContracts.swift; sourceTree = "<group>"; };
 		604B704F2AF01F1400A194AC /* UserUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUIModel.swift; sourceTree = "<group>"; };
 		604B70512AF0227D00A194AC /* UsersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewModel.swift; sourceTree = "<group>"; };
+		6063C9D72AF7C7C300208825 /* ConfigDev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDev.xcconfig; sourceTree = "<group>"; };
 		606533952AF039A400990C2B /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 		606533982AF0459D00990C2B /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		6065339A2AF0460300990C2B /* UserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRowView.swift; sourceTree = "<group>"; };
@@ -202,6 +203,15 @@
 			path = Users;
 			sourceTree = "<group>";
 		};
+		6063C9D62AF7C5D100208825 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				60D989422AED372500B71561 /* Info.plist */,
+				6063C9D72AF7C7C300208825 /* ConfigDev.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
 		606533932AF0398000990C2B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +303,7 @@
 		60D989332AED372300B71561 /* GitExploreApp */ = {
 			isa = PBXGroup;
 			children = (
+				6063C9D62AF7C5D100208825 /* Configurations */,
 				60F1F3F02AF37FFC00339BEE /* Utilities */,
 				60F8FE112AF2D7A60060BDDD /* BaseClasses */,
 				60EB2F5D2AF19A82006B36E0 /* Extensions */,
@@ -302,7 +313,6 @@
 				60D989362AED372300B71561 /* SceneDelegate.swift */,
 				60D9893D2AED372500B71561 /* Assets.xcassets */,
 				60D9893F2AED372500B71561 /* LaunchScreen.storyboard */,
-				60D989422AED372500B71561 /* Info.plist */,
 			);
 			path = GitExploreApp;
 			sourceTree = "<group>";
@@ -751,13 +761,14 @@
 		};
 		60D9895C2AED372500B71561 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6063C9D72AF7C7C300208825 /* ConfigDev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GitExploreApp/Info.plist;
+				INFOPLIST_FILE = GitExploreApp/Configurations/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -784,7 +795,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GitExploreApp/Info.plist;
+				INFOPLIST_FILE = GitExploreApp/Configurations/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
