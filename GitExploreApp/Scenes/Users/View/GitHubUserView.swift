@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 /// A view that displays a GitHub user's avatar and username.
 struct GitHubUserView: View {
@@ -14,18 +15,18 @@ struct GitHubUserView: View {
 
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: user.userAvatar)) { image in
-                image.resizable()
-            } placeholder: {
-                ProgressView()
-            }
-            .frame(width: user.avatarFrame.width, height: user.avatarFrame.height)
-            .clipShape(Circle())
-            .padding(Dimensions.d02)
-            .overlay(
-                Circle()
-                    .stroke(.gray, lineWidth: Dimensions.d02)
-            )
+            KFImage(URL(string: user.userAvatar))
+                .resizable()
+                .placeholder({
+                    ProgressView()
+                })
+                .frame(width: user.avatarFrame.width, height: user.avatarFrame.height)
+                .clipShape(Circle())
+                .padding(Dimensions.d02)
+                .overlay(
+                    Circle()
+                        .stroke(.gray, lineWidth: Dimensions.d02)
+                )
             Text(user.userName)
                 .font(.title)
                 .padding(.leading, Dimensions.d12)
