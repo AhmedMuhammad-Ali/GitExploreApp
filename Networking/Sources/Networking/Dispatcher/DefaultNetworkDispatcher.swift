@@ -22,7 +22,11 @@ public final class DefaultNetworkDispatcher: NetworkDispatcher {
             }
             return checkStatusCode(response, request, data)
         } catch {
-            return .failure(.unknown)
+            if let err = error as? URLError, err.code  == URLError.Code.notConnectedToInternet {
+                return .failure(.noInternetConnection)
+            } else {
+                return .failure(.unknown)
+            }
         }
     }
 }
