@@ -30,10 +30,12 @@ public protocol Endpoint: URLRequestConvertible {
 extension Endpoint {
     /// Default implementation of headers.
     public var baseUrl: URL {
-        NetworkConstants.baseUrl
+        Environment.baseURL
     }
-    public var headers: [String: String] { [:] }
-
+    /// A dictionary of HTTP headers, including an "Authorization" header with the API token.
+    public var headers: [String: String] {
+        ["Authorization": Environment.apiToken]
+    }
     /// Default implementation of query parameters.
     public var queryParameters: [String: String] { [:] }
 

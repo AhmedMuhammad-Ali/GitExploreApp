@@ -13,17 +13,11 @@ public struct Repo {
     /// A short description of the repository.
     public let description: String?
 
-    /// The full name of the repository, including the user or organization that owns it.
-    public let fullName: String?
-
     /// The user or organization that owns the repository.
     public let owner: User?
 
     /// The licensing information for the repository.
-    public let license: License?
-
-    /// The URL to access the forks of this repository.
-    public let forksURL: String?
+    public let license: String?
 
     /// Initializes a new repository.
     /// - Parameters:
@@ -35,27 +29,11 @@ public struct Repo {
     ///   - forksURL: The URL to access the forks of this repository.
     public init(name: String,
                 description: String?,
-                fullName: String?,
                 owner: User?,
-                license: License?,
-                forksURL: String?) {
+                license: String?) {
         self.name = name
         self.description = description
-        self.fullName = fullName
         self.owner = owner
         self.license = license
-        self.forksURL = forksURL
-    }
-}
-
-/// A data structure representing licensing information for a repository.
-public struct License {
-    /// The name of the license.
-    public let name: String?
-
-    /// Initializes a new license with the given name.
-    /// - Parameter name: The name of the license.
-    public init(name: String?) {
-        self.name = name
     }
 }

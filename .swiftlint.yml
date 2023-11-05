@@ -49,7 +49,6 @@ file_length:
 identifier_name:
   excluded: # excluded via string array
     - id
-    - d2
     - URL
 
 custom_rules:

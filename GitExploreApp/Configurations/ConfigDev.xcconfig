@@ -1,0 +1,14 @@
+//
+//  ConfigDev.xcconfig
+//  GitExploreApp
+//
+//  Created by Ahmed Ali on 05/11/2023.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+APPLICATION_NAME = Git Explore
+APPLICATION_ICON = AppIcon
+SERVER_URL = api.github.com
+API_TOKEN = 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
+

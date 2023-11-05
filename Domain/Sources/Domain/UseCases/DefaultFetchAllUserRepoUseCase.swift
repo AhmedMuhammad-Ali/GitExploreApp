@@ -13,7 +13,7 @@ public final class DefaultFetchAllUserRepoUseCase: FetchAllReposUseCase {
     /// Initializes an instance of `DefaultFetchAllUserRepoUseCase`.
     ///
     /// - Parameter reposRepository: A repository responsible for fetching user repositories.
-    public init(reposRepository: UserReposRepository) {
+    public init(_ reposRepository: UserReposRepository) {
         self.reposRepository = reposRepository
     }
 
