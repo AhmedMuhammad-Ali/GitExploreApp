@@ -29,20 +29,6 @@ public enum RequestError: Error, LocalizedError {
     /// Error indicating an unknown or unspecified error.
     case unknown
 
-    /// A custom message associated with each error case.
-    public var customMessage: String {
-        switch self {
-        case .decode:
-            return "Decode error"
-        case .unauthorized:
-            return "Session expired"
-        case .noInternetConnection:
-            return "Please check your Wi-Fi or mobile data connection and try again"
-        default:
-            return "Unknown error"
-        }
-    }
-
     /// Localized error description for each error case.
     public var errorDescription: String? {
         switch self {
