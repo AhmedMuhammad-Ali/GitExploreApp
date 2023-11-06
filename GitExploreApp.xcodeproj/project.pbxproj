@@ -74,6 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6035ECC22AF80E3E00F8CF14 /* Storage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Storage; sourceTree = "<group>"; };
 		6042599B2AF6E51100E332C8 /* EmptyViews+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmptyViews+ViewModel.swift"; sourceTree = "<group>"; };
 		604259A02AF6E77B00E332C8 /* LoadingStateControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingStateControllable.swift; sourceTree = "<group>"; };
 		604259A22AF6EE6A00E332C8 /* EmptyViewStateControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewStateControllable.swift; sourceTree = "<group>"; };
@@ -282,6 +283,7 @@
 		60D989282AED372300B71561 = {
 			isa = PBXGroup;
 			children = (
+				6035ECC22AF80E3E00F8CF14 /* Storage */,
 				60D989772AEDB42F00B71561 /* Core */,
 				60D9896A2AED749B00B71561 /* Domain */,
 				60D989642AED3B1100B71561 /* Networking */,

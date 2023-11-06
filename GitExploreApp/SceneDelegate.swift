@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         let appCoordinator = AppCoordinator(window: window,
-                                            navigationController: UINavigationController())
+                                            navigationController: createNavigationController())
         self.appCoordinator = appCoordinator
         appCoordinator.start()
 
@@ -51,5 +51,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+}
+// MARK: - Private Handler(s)
+private extension SceneDelegate {
+    /// Creates and configures a UINavigationController.
+    ///
+    /// - Returns: A configured UINavigationController with a black tinted navigation bar.
+    func createNavigationController() -> UINavigationController {
+        let navigationController = UINavigationController()
+        /// Set the tint color of the navigation bar to black.
+        navigationController.navigationBar.tintColor = .black
+        return navigationController
     }
 }

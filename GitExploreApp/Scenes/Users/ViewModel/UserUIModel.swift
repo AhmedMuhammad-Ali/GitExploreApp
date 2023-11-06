@@ -8,7 +8,7 @@
 import Domain
 
 /// A model representing a GitHub user's information.
-struct UserUIModel: Identifiable {
+struct UserUIModel {
 
     /// The unique identifier for the user.
     var id: Int = .zero
@@ -19,19 +19,20 @@ struct UserUIModel: Identifiable {
     /// The avatar URL of the GitHub user.
     var userAvatar: String = .empty
 
-    /// The count of repositories owned by the user.
-    var formattedReposCount: String {
-        "\(repos.count) Repositories"
-    }
-
     /// The count of followers of the user.
-    var followersCount: String = .empty
+    var followersCount: String = .notAvailable
+
+    /// The count of repos of the user.
+    var reposCount: String = .notAvailable
 
     /// The formatted count of followers.
     var formattedFollowersCount: String {
-        "\(followersCount) Followers"
+        (followersCount == .notAvailable ? followersCount : "\(followersCount)") + " Followers"
     }
-
+    /// The count of repositories owned by the user.
+    var formattedReposCount: String {
+        (reposCount == .notAvailable ? reposCount : "\(reposCount)") + " Repositories"
+    }
     /// The list of repositories owned by the user.
     var repos: [Repo] = []
 }
@@ -42,12 +43,17 @@ extension UserUIModel {
     /// - Parameters:
     ///   - user: The user's information.
     ///   - repos: The list of repositories owned by the user.
+    ///   - reposCount: The count of repositories for the user.
     ///   - followersCount: The count of followers for the user.
-    init(from user: User, repos: Repos, followersCount: Int) {
+    init(from user: User,
+         repos: Repos,
+         reposCount: String,
+         followersCount: String) {
         self.id = user.id
         self.userName = user.name
         self.userAvatar = user.avatarUrl
         self.repos = repos
-        self.followersCount = "\(followersCount)"
+        self.followersCount = followersCount
+        self.reposCount = reposCount
     }
 }

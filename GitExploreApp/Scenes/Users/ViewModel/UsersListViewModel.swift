@@ -69,7 +69,9 @@ extension UsersListViewModel: UsersListViewModelInput {
     ///
     /// - Parameter index: The index of the user in the list.
     func didTappedOnUser(at index: Int) {
-        let repos = users[safe: index]?.repos ?? []
+        let user =  users[safe: index]
+        guard user?.formattedReposCount != .notAvailable else { return }
+        let repos = user?.repos ?? []
         coordinator?.showUserRepsList(with: repos)
     }
 }
@@ -99,16 +101,13 @@ extension UsersListViewModel: UsersListViewModelOutput {
     ///  Fetches all users and updates the view state accordingly.
     func fetchAllUsers() {
         state = .loading
-        Task {
+        Task { [weak self] in
             do {
-                guard let returnedUsers =  try await fetchAllGitHubUsers() else {
-                    self.state = .empty
-                    return
-                }
+                guard let returnedUsers =  try await fetchAllGitHubUsers() else { return }
                 let completedUsersWithInfo = try await fetchCompletedUserInfo(users: returnedUsers)
-                onUsersListLoaded(completedUsersWithInfo)
+                self?.onUsersListLoaded(completedUsersWithInfo)
             } catch {
-                onReceiveError(error)
+                self?.onReceiveError(error)
             }
         }
     }
@@ -145,26 +144,34 @@ private extension UsersListViewModel {
     /// - Parameter user: The User object for which to fetch additional information.
     /// - Returns: A UserUIModel with completed information.
     func createUserCellView(_ user: User) async throws -> UserUIModel {
-        let repos =  try await self.reposUseCase.execute(by: user.name)
-        let followersCount =  try await self.followersCountUseCase(for: user.name)
+        let repos =  try? await self.reposUseCase.execute(by: user.name)
+        let followersCount =  try? await self.followersCountUseCase(for: user.name)
 
-        return UserUIModel(from: user, repos: repos, followersCount: followersCount)
+        let formattedFollowersCount: String = ( followersCount == nil) ? .notAvailable : "\(followersCount ?? .zero)"
+        let formattedReposCount: String = (repos?.count == nil) ? .notAvailable : "\(repos?.count ?? .zero)"
+
+        return UserUIModel(from: user,
+                           repos: repos ?? [],
+                           reposCount: formattedReposCount,
+                           followersCount: formattedFollowersCount
+        )
+
     }
     /// Handles the completion of the user list loading by updating the view state and user data on the `Main Thread`.
     ///
     /// - Parameter completedUsersWithInfo: An array of UserUIModel objects with completed information.
     func onUsersListLoaded(_ completedUsersWithInfo: [UserUIModel]) {
-        Task { @MainActor in
-            state = .idle
-            users = completedUsersWithInfo
+        Task { @MainActor [weak self] in
+            completedUsersWithInfo.isEmpty ? (self?.state = .empty) : (self?.state = .idle)
+            self?.users = completedUsersWithInfo
         }
     }
     /// Handles error cases by updating the view state to indicate an error on the `Main Thread`..
     ///
     /// - Parameter error: The error that occurred.
     func onReceiveError(_ error: Error) {
-        Task { @MainActor in
-            self.state = .error(error)
+        Task { @MainActor [weak self] in
+            self?.state = .error(error)
         }
     }
 }

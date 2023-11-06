@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Core
 /// A protocol defining the common interface for view controllers that can display loading indicators and handle errors.
 protocol LoadingStateControllable: ViewControllerProtocol, EmptyViewStateControllable {
     /// The loading indicator view associated with the view controller.
@@ -39,7 +40,7 @@ extension LoadingStateControllable {
     /// - Parameter error: The error to be displayed.
     func showError(with error: Error) {
         let alertController = UIAlertController(
-            title: "Error!!",
+            title: "Oops! Something Went Wrong",
             message: error.localizedDescription,
             preferredStyle: .alert)
 
