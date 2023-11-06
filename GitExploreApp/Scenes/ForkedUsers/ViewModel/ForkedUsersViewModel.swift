@@ -47,15 +47,16 @@ extension ForkedUsersViewModel: ForkedUsersViewModelInput {
     /// Fetches all forked users for the specified repository.
     func fetchAllForkedUsers() {
         state = .loading
-        Task {
+        Task { [weak self] in
+            guard let self = self else { return }
             do {
-                users = try await forkedUsersUseCase.execute(
+                self.users = try await self.forkedUsersUseCase.execute(
                     byOwner: contextDetails.userName,
                     for: contextDetails.repoName
                 )
-                onUsersListLoaded()
+                self.onUsersListLoaded()
             } catch {
-                state = .error(error)
+                self.state = .error(error)
             }
         }
     }

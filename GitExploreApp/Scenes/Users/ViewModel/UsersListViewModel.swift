@@ -69,7 +69,9 @@ extension UsersListViewModel: UsersListViewModelInput {
     ///
     /// - Parameter index: The index of the user in the list.
     func didTappedOnUser(at index: Int) {
-        let repos = users[safe: index]?.repos ?? []
+        let user =  users[safe: index]
+        guard user?.formattedReposCount != .notAvailable else { return }
+        let repos = user?.repos ?? []
         coordinator?.showUserRepsList(with: repos)
     }
 }
@@ -99,16 +101,13 @@ extension UsersListViewModel: UsersListViewModelOutput {
     ///  Fetches all users and updates the view state accordingly.
     func fetchAllUsers() {
         state = .loading
-        Task {
+        Task { [weak self] in
             do {
-                guard let returnedUsers =  try await fetchAllGitHubUsers() else {
-                    self.state = .empty
-                    return
-                }
+                guard let returnedUsers =  try await fetchAllGitHubUsers() else { return }
                 let completedUsersWithInfo = try await fetchCompletedUserInfo(users: returnedUsers)
-                onUsersListLoaded(completedUsersWithInfo)
+                self?.onUsersListLoaded(completedUsersWithInfo)
             } catch {
-                onReceiveError(error)
+                self?.onReceiveError(error)
             }
         }
     }
@@ -162,17 +161,17 @@ private extension UsersListViewModel {
     ///
     /// - Parameter completedUsersWithInfo: An array of UserUIModel objects with completed information.
     func onUsersListLoaded(_ completedUsersWithInfo: [UserUIModel]) {
-        Task { @MainActor in
-            state = .idle
-            users = completedUsersWithInfo
+        Task { @MainActor [weak self] in
+            completedUsersWithInfo.isEmpty ? (self?.state = .empty) : (self?.state = .idle)
+            self?.users = completedUsersWithInfo
         }
     }
     /// Handles error cases by updating the view state to indicate an error on the `Main Thread`..
     ///
     /// - Parameter error: The error that occurred.
     func onReceiveError(_ error: Error) {
-        Task { @MainActor in
-            self.state = .error(error)
+        Task { @MainActor [weak self] in
+            self?.state = .error(error)
         }
     }
 }

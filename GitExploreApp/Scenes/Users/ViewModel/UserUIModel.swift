@@ -27,11 +27,11 @@ struct UserUIModel {
 
     /// The formatted count of followers.
     var formattedFollowersCount: String {
-        followersCount == .notAvailable ? followersCount : "\(followersCount) " + "Followers"
+        (followersCount == .notAvailable ? followersCount : "\(followersCount)") + " Followers"
     }
     /// The count of repositories owned by the user.
     var formattedReposCount: String {
-        reposCount == .notAvailable ? reposCount : "\(reposCount) " + "Repositories"
+        (reposCount == .notAvailable ? reposCount : "\(reposCount)") + " Repositories"
     }
     /// The list of repositories owned by the user.
     var repos: [Repo] = []
