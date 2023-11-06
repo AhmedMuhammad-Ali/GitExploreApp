@@ -24,19 +24,6 @@
 ## Dependency Direction
 ![Alt text](README_FILES/CleanArchitectureDependencies.png?raw=true "Modules Dependencies")
 
-## GitExploreApp Tech-Stack
-
-- [Modularization] - Modular project structure: Separates the project into distinct modules to improve maintainability and scalability.
-- [Coordinator Pattern] - Used for navigation management, keeping navigation logic organized and separate from the UI.
-- [UIkit] - Utilized for specific UI components and screens within the app.
-- [SwiftUI] - Used for building some parts of the user interface, providing a declarative and modern approach to UI development.
-- [Combine] - A framework for processing values over time, used for managing data flows and asynchronous operations.
-- [Swift Concurrency] - Utilizes Swift's concurrency features, such as async/await, to handle asynchronous tasks efficiently.
-- [Callable user-defined nominal types](https://github.com/apple/swift-evolution/blob/main/proposals/0253-callable.md) -  By making these user-defined nominal types callable, you've enabled them to be used as functions. This allows you to interact with these types in a more natural and expressive way, making your code more readable and self-explanatory (used in ** DefaultFetchUserFollowersCountUseCase **). 
-- [DIContainer] - A custom dependency injection container for managing dependencies and their lifetimes.
-- [CoreData] - Use Core Data Used to save your application’s permanent data for offline use, to cache temporary data, and to add undo functionality to your app on a single device.
-
-
 ## Presentation Layer
 
 ### MVVM Architecture
@@ -49,7 +36,7 @@
 
 ## Domain Layer
 
->The Domain layer of GitExploreApp  plays a central role in defining the business logic and rules of your application which contains the  **Entities ** +  **Use Cases** +  **Repositories Interfaces**
+>The Domain layer of GitExploreApp  plays a central role in defining the business logic and rules of your application which contains the  **Entities** +  **Use Cases** +  **Repositories Interfaces**
 
 ## Core Layer
 
@@ -67,6 +54,18 @@
 ## Extensive Unit Testing
 
 >The project includes extensive unit testing for all use cases, ensuring code quality and reliability. Custom network testing with extended URLProtocol allows for comprehensive end-to-end flow testing. This approach guarantees that the app's functionality remains robust and reliable under various conditions.
+
+## GitExploreApp Tech-Stack
+
+- [Modularization] - Modular project structure: Separates the project into distinct modules to improve maintainability and scalability.
+- [Coordinator Pattern] - Used for navigation management, keeping navigation logic organized and separate from the UI.
+- [UIkit] - Utilized for specific UI components and screens within the app.
+- [SwiftUI] - Used for building some parts of the user interface, providing a declarative and modern approach to UI development.
+- [Combine] - A framework for processing values over time, used for managing data flows and asynchronous operations.
+- [Swift Concurrency] - Utilizes Swift's concurrency features, such as async/await, to handle asynchronous tasks efficiently.
+- [Callable user-defined nominal types](https://github.com/apple/swift-evolution/blob/main/proposals/0253-callable.md) -  By making these user-defined nominal types callable, you've enabled them to be used as functions. This allows you to interact with these types in a more natural and expressive way, making your code more readable and self-explanatory (used in **DefaultFetchUserFollowersCountUseCase**). 
+- [DIContainer] - A custom dependency injection container for managing dependencies and their lifetimes.
+- [CoreData] - Use Core Data Used to save your application’s permanent data for offline use, to cache temporary data, and to add undo functionality to your app on a single device.
 
 ## Minimum iOS Version
 
