@@ -29,6 +29,15 @@ public protocol CoreDataWrapping {
     func fetchObjects<T: Object>(ofType type: T.Type,
                                  predicate: NSPredicate?,
                                  sortDescriptors: [NSSortDescriptor]?) -> [T]
+    /// Retrieves the first object of a specified type that matches the given predicate.
+    ///
+    /// - Parameters:
+    ///   - type: The type of object to retrieve.
+    ///   - predicate: An optional NSPredicate used to filter the objects. Pass `nil` to retrieve all objects of the specified type.
+    ///
+    /// - Returns: The first object of the specified type that matches the predicate, or `nil` if no matching object is found.
+    func firstObject<T: Object>(ofType type: T.Type,
+                                matching predicate: NSPredicate?) -> T?
 }
 /// A class that implements the CoreDataWrapping protocol, providing methods for managing CoreData operations.
 public final class CoreDataManager: CoreDataWrapping {
@@ -79,4 +88,18 @@ public final class CoreDataManager: CoreDataWrapping {
             return []
         }
     }
+    public func firstObject<T: Object>(ofType type: T.Type,
+                                       matching predicate: NSPredicate? = nil) -> T? {
+        let fetchRequest: NSFetchRequest<T> = T.fetchRequest()
+        fetchRequest.predicate = predicate
+        fetchRequest.fetchLimit = 1
+
+        do {
+            return try persistentContainer.viewContext.fetch(fetchRequest).first
+        } catch {
+            print("Fetch error: \(error)")
+            return nil
+        }
+    }
+
 }
