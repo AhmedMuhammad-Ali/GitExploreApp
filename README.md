@@ -20,7 +20,7 @@
 - Domain: The Domain module holds the core business logic and models of the application. It defines the entities and use cases that drive the app's functionality.
 - Core: The Core module serves as the data source module, handling data fetching.
 - Networking: This module contains network-related code for making API requests to the GitHub API. It uses swift modern concurrency for handling asynchronous operations.
-- Storage: This module contains storage-related code for making caching staff. It uses Core Data.
+- Storage: This module contains storage-related code for making caching staff. It uses Core Data (**the app handle caching for the User response only**).
 ## Dependency Direction
 ![Alt text](README_FILES/CleanArchitectureDependencies.png?raw=true "Modules Dependencies")
 
