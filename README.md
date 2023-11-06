@@ -20,7 +20,7 @@
 - Domain: The Domain module holds the core business logic and models of the application. It defines the entities and use cases that drive the app's functionality.
 - Core: The Core module serves as the data source module, handling data fetching.
 - Networking: This module contains network-related code for making API requests to the GitHub API. It uses swift modern concurrency for handling asynchronous operations.
-- Networking: This module contains storage-related code for making caching staff. It uses Core Data.
+- Storage: This module contains storage-related code for making caching staff. It uses Core Data.
 ## Dependency Direction
 ![Alt text](README_FILES/CleanArchitectureDependencies.png?raw=true "Modules Dependencies")
 
@@ -66,7 +66,12 @@
 - [Callable user-defined nominal types](https://github.com/apple/swift-evolution/blob/main/proposals/0253-callable.md) -  By making these user-defined nominal types callable, you've enabled them to be used as functions. This allows you to interact with these types in a more natural and expressive way, making your code more readable and self-explanatory (used in **DefaultFetchUserFollowersCountUseCase**). 
 - [DIContainer] - A custom dependency injection container for managing dependencies and their lifetimes.
 - [CoreData] - Use Core Data Used to save your application’s permanent data for offline use, to cache temporary data, and to add undo functionality to your app on a single device.
+- [SwiftLint] - tool that enforces code style guidelines and performs static analysis on Swift source code.
 
 ## Minimum iOS Version
 
 >GitExploreApp is designed to run on iOS 16 or later, making use of the latest iOS features and enhancements.
+
+## Screenshots 🌠
+![Alt text](README_FILES/screenshot.png?raw=true "Modules Dependencies")
+![Alt text](README_FILES/emptyanderror.png?raw=true "Modules Dependencies")
