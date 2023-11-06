@@ -37,7 +37,7 @@ public final class DefaultUserStorage: UserStorage {
     /// - Parameter user: The `User` object to be saved.
     public func saveUser(_ user: User) {
         guard !isSavedUser(user) else { return }
-    
+
         let object = coreDataWrapper.createObject(ofType: UserEntity.self)
 
         object.userId = Int64(user.id)
