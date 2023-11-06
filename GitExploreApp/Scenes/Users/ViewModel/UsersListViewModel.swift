@@ -102,12 +102,13 @@ extension UsersListViewModel: UsersListViewModelOutput {
     func fetchAllUsers() {
         state = .loading
         Task { [weak self] in
+            guard let self = self else { return }
             do {
-                guard let returnedUsers =  try await fetchAllGitHubUsers() else { return }
-                let completedUsersWithInfo = try await fetchCompletedUserInfo(users: returnedUsers)
-                self?.onUsersListLoaded(completedUsersWithInfo)
+                guard let returnedUsers =  try await self.fetchAllGitHubUsers() else { return }
+                let completedUsersWithInfo = try await self.fetchCompletedUserInfo(users: returnedUsers)
+                self.onUsersListLoaded(completedUsersWithInfo)
             } catch {
-                self?.onReceiveError(error)
+                self.onReceiveError(error)
             }
         }
     }
@@ -162,7 +163,7 @@ private extension UsersListViewModel {
     /// - Parameter completedUsersWithInfo: An array of UserUIModel objects with completed information.
     func onUsersListLoaded(_ completedUsersWithInfo: [UserUIModel]) {
         Task { @MainActor [weak self] in
-            completedUsersWithInfo.isEmpty ? (self?.state = .empty) : (self?.state = .idle)
+            state = completedUsersWithInfo.isEmpty ? .empty : .idle
             self?.users = completedUsersWithInfo
         }
     }
