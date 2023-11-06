@@ -49,7 +49,10 @@ extension UserRepositoriesViewModel: UserReposViewModelInput {
     }
     /// The title associated with the repository.
     var title: String {
-        "\(repos.first?.owner?.name ?? "")'s Repositories"
+        guard let name =  repos.first?.owner?.name else {
+            return "No Repositories"
+        }
+        return "\(name)'s Repositories"
     }
 }
 extension UserRepositoriesViewModel: UserReposViewModelOutput {
